@@ -8,7 +8,7 @@ export default defineConfig({
     starlight({
       title: 'Reskin',
       logo: { src: './src/assets/logo.svg', replacesTitle: true },
-      social: { github: 'https://github.com/iamnotmega/reskin' },
+      social: { github: 'https://github.com/reskinapp/reskinapp.github.io' },
       sidebar: [
         {
           label: 'Quick Start',

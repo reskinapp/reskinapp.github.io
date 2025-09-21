@@ -1,0 +1,42 @@
+---
+title: Contact
+template: splash
+hero:
+  tagline: Have questions or feedback?
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Get in touch
+
+Fill out the form below to send us a message.
+
+<CardGrid>
+  <Card title="Contact Form">
+    <form action="https://formspree.io/f/xpwyazyp" method="POST">
+      <p>
+        <label>Your Name: <input type="text" name="name" /></label>
+      </p>
+      <p>
+        <label>Your Email: <input type="email" name="email" /></label>
+      </p>
+      <p>
+        <label>Category: </label>
+          <select name="category">
+            <option value="general-inquiry">General Inquiry</option>
+            <option value="report-a-bug">Report a Bug</option>
+            <option value="feature-request">Feature Request</option>
+            <option value="account-deletion">Account Deletion</option>
+            <option value="other">Other</option>
+          </select>
+      </p>
+      <p>
+        <label>Message: <textarea name="message"></textarea></label>
+      </p>
+      <input type="hidden" name="_subject" value="New message from Reskin!" />
+      <p>
+        <button type="submit">Send</button>
+      </p>
+    </form>
+  </Card>
+</CardGrid>
