@@ -4,7 +4,6 @@ import mdx from '@astrojs/mdx';
 
 export default defineConfig({
   site: 'https://reskinapp.github.io',
-  base: './',
   integrations: [
     starlight({
       title: 'Reskin',
