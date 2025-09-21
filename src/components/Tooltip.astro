@@ -1,0 +1,66 @@
+---
+const { src, alt, tooltips } = Astro.props;
+---
+<div class="image-container">
+  <img src={src} alt={alt} />
+  {tooltips.map(tooltip => (
+    <div 
+      class="tooltip-area" 
+      style={`
+        top: ${tooltip.y}%; 
+        left: ${tooltip.x}%;
+      `}
+    >
+      <div class="tooltip-text">
+        {tooltip.text}
+      </div>
+    </div>
+  ))}
+</div>
+
+<style>
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-area {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgba(128, 128, 128, 0.4);
+  border: 2px solid rgba(200, 200, 200, 0.6);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  cursor: help;
+  pointer-events: all;
+}
+
+.tooltip-area:hover {
+  background-color: rgba(128, 128, 128, 0.7);
+  border-color: rgba(220, 220, 220, 0.8);
+}
+
+.tooltip-text {
+  visibility: hidden;
+  background-color: #333;
+  color: var(--starlight-theme-text-1);
+  text-align: center;
+  border-radius: 4px;
+  padding: 6px 8px;
+  position: absolute;
+  z-index: 10;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.tooltip-area:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+</style>

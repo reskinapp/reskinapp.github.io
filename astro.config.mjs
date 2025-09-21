@@ -18,6 +18,16 @@ export default defineConfig({
             { label: 'Installation', slug: 'guides/quick-start/installation' },
           ],
         },
+        {
+          label: 'How to Use',
+          items: [
+            { label: 'Welcome', slug: 'guides/how-to-use/welcome' },
+            { label: 'Marketplace', slug: 'guides/how-to-use/marketplace' },
+            { label: 'Theme Bundler', slug: 'guides/how-to-use/theme-bundler' },
+            { label: 'Theme Installer ', slug: 'guides/how-to-use/theme-installer' },
+            { label: 'Settings ', slug: 'guides/how-to-use/settings' }
+          ],
+        },
       ],
     }),
     mdx(),

@@ -1,0 +1,35 @@
+---
+title: Theme Bundler
+---
+
+import Tooltip from '/src/components/Tooltip.astro';
+import homeImg from '/src/assets/guides/home.png';
+import sidenavImg from '/src/assets/guides/sidenav.png';
+
+The Theme Bundler allows you to upload your theme files, add metadata such as tags or licenses and bundle it into a portable .reskin bundle to either share or upload to the Marketplace. Here's how to use it:
+
+<Tooltip
+  src={homeImg.src}
+  alt="Reskin app homepage screenshot"
+  tooltips={[
+    { x: 2, y: -2, text: "Open the side navigation." }
+  ]}
+/>
+
+<Tooltip
+  src={sidenavImg.src}
+  alt="Reskin app side navigation screenshot"
+  tooltips={[
+    { x: 30, y: 55, text: "Press the Theme Bundler button." }
+  ]}
+/>
+
+Once on the bundler page, fill in the form with your metadata and upload your theme folder by either dragging it into the app or clicking on the selection area to select it manually. 
+
+:::note
+For a .reskin file to be considered valid, it **must** contain atleast the theme name, the author (autofilled when logged in with a Reskin account) and a version number (if unspecified will default to 1.0, numbers only).
+:::
+
+When you have filled the form, press the Bundle Theme button.
+
+You have just bundled your very own .reskin file using the Theme Bundler! You can find your bundled theme at `/tmp/reskin`.

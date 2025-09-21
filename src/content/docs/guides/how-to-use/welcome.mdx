@@ -1,0 +1,39 @@
+---
+title: Welcome
+---
+import Tooltip from '/src/components/Tooltip.astro';
+import homeImg from '/src/assets/guides/home.png';
+import sidenavImg from '/src/assets/guides/sidenav.png';
+
+Welcome to Reskin! This page will teach you what each UI element does.
+
+### Home
+
+<Tooltip
+  src={homeImg.src}
+  alt="Reskin app homepage screenshot"
+  tooltips={[
+    { x: 2, y: -2, text: "This opens the side navigation." },
+    { x: 9, y: 3, text: "This shows your recently installed themes." }
+  ]}
+/>
+
+Hover over the UI elements to see what they do.
+
+### Side Navigation
+
+<Tooltip
+  src={sidenavImg.src}
+  alt="Reskin app side navigation screenshot"
+  tooltips={[
+    { x: 85, y: 5, text: "This closes the side navigation." },
+    { x: 15, y: 10, text: "This lets you log into your Reskin account." },
+    { x: 50, y: 30, text: "This brings you back to the homepage." },
+    { x: 50, y: 45, text: "This brings you to the marketplace." },
+    { x: 50, y: 60, text: "This brings you to the theme bundler." },
+    { x: 50, y: 70, text: "This brings you to the theme installer." },
+    { x: 50, y: 83, text: "This opens the settings menu." },
+  ]}
+/>
+
+Hover over the UI elements to see what they do.

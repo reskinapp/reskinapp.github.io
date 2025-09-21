@@ -1,0 +1,27 @@
+---
+title: Settings
+---
+
+import Tooltip from '/src/components/Tooltip.astro';
+import homeImg from '/src/assets/guides/home.png';
+import sidenavImg from '/src/assets/guides/sidenav.png';
+
+The Settings menu contains useful settings to configure the app for your needs. To access it:
+
+<Tooltip
+  src={homeImg.src}
+  alt="Reskin app homepage screenshot"
+  tooltips={[
+    { x: 2, y: -2, text: "Open the side navigation." }
+  ]}
+/>
+
+<Tooltip
+  src={sidenavImg.src}
+  alt="Reskin app side navigation screenshot"
+  tooltips={[
+    { x: 75, y: 83, text: "Press the Settings button." }
+  ]}
+/>
+
+When you open the settings menu, you can find useful options to customize the app. The settings menu also displays the current app version at the bottom.
