@@ -1,0 +1,100 @@
+---
+title: Translation Guide
+description: Getting started with translating Reskin
+---
+
+## Reskin Translation Guide
+
+Thank you for your interest in contributing to Reskin! By providing a translation, you help bring the power of Reskin to a global audience.
+
+:::note
+Reskin version 1.5.0 or later is required to follow this guide. Please ensure the `package-lock.json`, `package.json`, `Cargo.toml` and `tauri.conf.json` files in your fork all have a version of `1.5.0` or above.
+:::
+
+## Prerequisites
+
+Before starting your translation work, please ensure you meet the following requirements:
+
+- GitHub Account: You must have a GitHub account to fork the repository and submit a Pull Request.
+
+- Native Fluency: You should be a native or near-native speaker of the language you are translating to ensure accuracy and natural flow.
+
+## How to Translate
+
+The Reskin localization system (i18n) is designed for simplicity. All user-facing text is stored in separate, structured JSON files.
+
+1. **Fork the Repository**
+
+Start by forking the main `iamnotmega/reskin` repository on GitHub and clone it to your local machine.
+
+2. **Locate the Language Folder**
+
+Navigate to the source directory containing the language files in your forked repository:
+```bash
+cd /src/locales
+```
+
+3. **Create the New Translation File**
+
+Create a new file in the `/src/locales` folder. The filename MUST be the two-letter ISO 639-1 language code followed by a `.json` extension (e.g., German should be `de.json`, Turkish should be `tr.json`). This standardized naming is required to ensure system consistency and maintainability.
+
+4. **Copy the English Contents**
+
+Copy ALL the content from the source file (`en.json`) and paste them into your new language file.
+
+5. **Update the Metadata (_META)**
+
+Edit the "_META" section at the very top of your new file to provide necessary documentation:
+
+```json
+  "_META": {
+    "version": "1.5.0",
+    "translators": ["YOUR_GITHUB_USERNAME"], // Replace with your name/username
+    "lastEdited": "2025/10/18",               // Replace with the date you finished
+    "language": "Language Name"       // Replace with the full name of the language (e.g., "Türkçe")
+  },
+```
+
+6. **Translate the Strings**
+
+Go through the entire file and replace the strings of text in the file with the correct language equivalent.
+
+:::caution
+DO NOT change the key names (e.g., do not rename authmodal.title.login). Changing keys will break the application for that language.
+:::
+
+7. **Perform Final Review**
+
+- Check your translated file carefully:
+
+- Ensure all entries are still valid JSON (no trailing commas, correct quote usage).
+
+- Verify all original keys have a corresponding translated string.
+
+8. **Commit and Push**
+
+Commit your new `<language-code>.json` file with a clear commit message. Then, push the changes to your forked repository.
+
+9. **Create a Pull Request (PR)**
+
+On GitHub, create a Pull Request targeting the `dev` branch of the main `iamnotmega/reskin` repository.
+
+10. **Merge and Release**
+
+The pull request will be reviewed to verify the quality of the translation, and merge your work into `dev`. Your translation will then be included in the next official Reskin release!
+
+## Technical Reference
+
+### Handling Variables
+
+Some strings contain variables (e.g., `{selectedFile.name}`). You MUST keep these variables intact within the translated string.
+
+Example:
+
+English: `"status.applying": "Applying {selectedFile.name} → {destPath} ..."`
+
+Translation (Estonian): `"status.applying": "Rakendatakse faili {selectedFile.name} → {destPath} ..."`
+
+### The _META Section
+
+Please ensure the `language` field reflects the native name of the language, as this is what is displayed to the user in the settings menu.

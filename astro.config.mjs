@@ -8,7 +8,13 @@ export default defineConfig({
     starlight({
       title: 'Reskin',
       logo: { src: './src/assets/logo.svg', replacesTitle: true },
-      social: { github: 'https://github.com/reskinapp/reskinapp.github.io' },
+      social: [
+        {
+          icon: 'github',
+          label: 'github',
+          href: 'https://github.com/reskinapp/reskinapp.github.io' 
+        }
+      ],
       sidebar: [
         {
           label: 'Quick Start',
@@ -26,6 +32,12 @@ export default defineConfig({
             { label: 'Theme Bundler', slug: 'guides/how-to-use/theme-bundler' },
             { label: 'Theme Installer ', slug: 'guides/how-to-use/theme-installer' },
             { label: 'Settings ', slug: 'guides/how-to-use/settings' }
+          ],
+        },
+        {
+          label: 'References',
+          items: [
+            { label: 'Translation Guide', slug: 'references/translation-guide' },
           ],
         },
       ],
