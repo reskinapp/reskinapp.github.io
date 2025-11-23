@@ -1,0 +1,46 @@
+---
+title: Marketplace
+---
+import Tooltip from '/src/components/Tooltip.astro';
+import homeImg from '/src/assets/guides/home.png';
+import sidenavImg from '/src/assets/guides/sidenav.png';
+import configfilesImg from '/src/assets/guides/configfiles.png';
+import signupImg from '/src/assets/guides/signup.png';
+import marketplaceImg from '/src/assets/guides/marketplace.png';
+import uploadImg from '/src/assets/guides/upload.png';
+
+This page will teach you how to use the Configuration Files feature. Configuration Files in Reskin help you to apply different types of configuration files with a single click without the use of a terminal.
+
+## Installing Configuration Files
+
+To install configuration files, you can do the following:
+
+<Tooltip
+  src={homeImg.src}
+  alt="Reskin app homepage screenshot"
+  tooltips={[
+    { x: 2, y: -2, text: "Open the side navigation." }
+  ]}
+/>
+
+<Tooltip
+  src={sidenavImg.src}
+  alt="Reskin app side navigation screenshot"
+  tooltips={[
+    { x: 25, y: 75, text: "Press the Configuration Files button." }
+  ]}
+/>
+
+The configuration file type will decide where it will be installed and what will it be named, but this can be overriden with the `custom` type.
+
+<Tooltip
+  src={configfilesImg.src}
+  alt="Reskin app configuration files screenshot"
+  tooltips={[
+    { x: 15, y: 59, text: "Click the Upload File button to upload your configuration file." },
+    { x: 55, y: 59, text: "Click the configuration file dropdown to upload select the type of your configuration file." },
+    { x: 85, y: 59, text: "Click the Apply Configuration button to apply your uploaded configuration file." }
+  ]}
+/>
+
+Congratulations, you have just installed and applied a configuration file within Reskin!

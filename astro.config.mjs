@@ -31,6 +31,7 @@ export default defineConfig({
             { label: 'Marketplace', slug: 'guides/how-to-use/marketplace' },
             { label: 'Theme Bundler', slug: 'guides/how-to-use/theme-bundler' },
             { label: 'Theme Installer ', slug: 'guides/how-to-use/theme-installer' },
+            { label: 'Configuration Files', slug: 'guides/how-to-use/configuration-files' },
             { label: 'Settings ', slug: 'guides/how-to-use/settings' }
           ],
         },
