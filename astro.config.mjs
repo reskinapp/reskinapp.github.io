@@ -39,6 +39,7 @@ export default defineConfig({
           label: 'References',
           items: [
             { label: 'Translation Guide', slug: 'references/translation-guide' },
+            { label: 'Known Issues', slug: 'references/known-issues' }
           ],
         },
       ],

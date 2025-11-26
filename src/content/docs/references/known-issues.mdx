@@ -1,0 +1,31 @@
+---
+title: Known Issues
+---
+
+This page lists known issues with the Reskin application.
+
+:::note
+Please keep in mind this page is not intended for issues reported by users, but issues which are **not related** to Reskin, but rather an external issue (such as a dependency suffering a bug, certain things not working on certain distributions and etc.) which affects Reskin.
+:::
+
+## AUR (Arch User Repository) builds whitescreen upon launch
+
+Installations of Reskin from the AUR might whitescreen upon launching. The root cause is currently **unknown**, but it might be because of `fakeroot` library versions not matching the host.
+This issue does **not** affect builds from GitHub.
+
+**Workaround**
+
+:::caution
+The above workaround **will** require you to have write permissions to `/usr/bin` to copy the binary from GitHub and replace the AUR binary.
+:::
+
+1. Go on the [Reskin GitHub Repository](https://github.com/iamnotmega/reskin) and click on the latest release.
+2. Download the binary onto your machine.
+3. Copy the binary into `/usr/bin` by either using a GUI file manager or running `sudo cp <path-to-binary> /usr/bin` in your terminal.
+
+## Authentication related operations fail in all installations of Reskin
+
+**All** installations of Reskin have an issue, which prevents any authentication related code from working properly.
+The issue is caused by the Appwrite JS SDK not supporting custom schemes (like `tauri://`, which is what Reskin and other Tauri applications use in release mode (http:// or https:// in debug mode)), thus resulting in the error: `Invalid Scheme: The scheme used (tauri) in the Origin (tauri://localhost) is not supported.  If you are using a custom scheme, please change it to appwrite-callback-<PROJECT_ID>`
+
+There is currently **no** workaround for this issue.
