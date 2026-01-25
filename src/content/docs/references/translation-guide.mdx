@@ -8,7 +8,7 @@ description: Getting started with translating Reskin
 Thank you for your interest in contributing to Reskin! By providing a translation, you help bring the power of Reskin to a global audience.
 
 :::note
-Reskin version 1.5.0 or later is required to follow this guide. Please ensure the `package-lock.json`, `package.json`, `Cargo.toml` and `tauri.conf.json` files in your fork all have a version of `1.5.0` or above.
+Reskin version 1.9.0 or later is required to follow this guide. Please ensure the `package-lock.json`, `package.json`, `Cargo.toml` and `tauri.conf.json` files in your fork all have a version of `1.9.0` or above.
 :::
 
 ## Prerequisites
@@ -21,7 +21,7 @@ Before starting your translation work, please ensure you meet the following requ
 
 ## How to Translate
 
-The Reskin localization system (i18n) is designed for simplicity. All user-facing text is stored in separate, structured JSON files.
+Reskin uses Mozilla's Fluent translation system (.ftl) for all of its translatable strings.
 
 1. **Fork the Repository**
 
@@ -38,23 +38,21 @@ cd /src/locales
 
 3. **Create the New Translation File**
 
-Create a new file in the `/src/locales` folder. The filename MUST be the two-letter ISO 639-1 language code followed by a `.json` extension (e.g., German should be `de.json`, Turkish should be `tr.json`). This standardized naming is required to ensure system consistency and maintainability. If you don't know the country code for the language you are translating, please find it in [this article](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes).
+Create a new file in the `/src/locales` folder. The filename MUST be the two-letter ISO 639-1 language code followed by a `.ftl` extension (e.g., German should be `de.ftl`, Turkish should be `tr.ftl`). This standardized naming is required to ensure system consistency and maintainability. If you don't know the country code for the language you are translating, please find it in [this article](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes).
 
 4. **Copy the English Contents**
 
-Copy ALL the content from the source file (`en.json`) and paste them into your new language file.
+Copy ALL the content from the source file (`en.ftl`) and paste them into your new language file.
 
 5. **Update the Metadata (_META)**
 
 Edit the "_META" section at the very top of your new file to provide necessary documentation:
 
-```json
-  "_META": {
-    "version": "1.5.0", // Replace with the version of Reskin in your fork (check `package-lock.json`, `package.json`, `Cargo.toml` or `tauri.conf.json` to find the version)
-    "translators": ["YOUR_GITHUB_USERNAME"], // Replace with your name/username
-    "lastEdited": "2025/10/18",               // Replace with the date you finished (should be in DD/MM/YYYY (European) format)
-    "language": "Language Name"       // Replace with the full name of the language (e.g., "Türkçe") in the NATIVE LANGUAGE
-  },
+```ftl
+_META-version = 1.8.0 # Application version while making the translation
+_META-translators-0 = iamnotmega # The translator's name (can be more than one person)
+_META-lastEdited = 21/12/2025 # When the file was last modified
+_META-language = English # The name of the language (MUST be in the same language, e.g Eesti, Latviešu etc.)
 ```
 
 6. **Translate the Strings**
@@ -62,20 +60,20 @@ Edit the "_META" section at the very top of your new file to provide necessary d
 Go through the entire file and replace the strings of text in the file with the correct language equivalent.
 
 :::caution
-DO NOT change the key names (e.g., do not rename authmodal.title.login). Changing keys will break the application for that language.
+DO NOT change the key names (e.g., do not rename authmodal-title-login). Changing keys will break the application for that language.
 :::
 
 7. **Perform Final Review**
 
 - Check your translated file carefully:
 
-- Ensure all entries are still valid JSON (no trailing commas, correct quote usage).
+- Ensure all entries are still in valid FTL syntax.
 
 - Verify all original keys have a corresponding translated string.
 
 8. **Commit and Push**
 
-Commit your new `<language-code>.json` file with a clear commit message. Then, push the changes to your forked repository.
+Commit your new `<language-code>.ftl` file with a clear commit message. Then, push the changes to your forked repository.
 
 9. **Create a Pull Request (PR)**
 
@@ -93,9 +91,9 @@ If there are new keys that needed to be translated, do this:
 
 2. Sync the forked repository with upstream `dev` by clicking the "Sync Fork" button.
 
-3. Go to `src/locales/en.json` and find the newly translated strings by either looking through the file or checking the latest commit's changes.
+3. Go to `src/locales/en.ftl` and find the newly translated strings by either looking through the file or checking the latest commit's changes.
 
-4. Once you have found the strings, copy them into your translation file (e.g `ee.json`) and translate them.
+4. Once you have found the strings, copy them into your translation file (e.g `et.ftl`) and translate them.
 
 5. Commit your changes to the `dev` branch once finished and open a Pull Request as outlined in the previous section.
 
@@ -103,13 +101,13 @@ If there are new keys that needed to be translated, do this:
 
 ### Handling Variables
 
-Some strings contain variables (e.g., `{selectedFile.name}`). You MUST keep these variables intact within the translated string.
+Some strings contain variables (e.g., `{$selectedFile.name}`). You MUST keep these variables intact within the translated string and it must start with a **$**.
 
 Example:
 
-English: `"status.applying": "Applying {selectedFile.name} → {destPath} ..."`
+English: `status-applying = Applying {$selectedFile.name} → {$destPath} ...`
 
-Translation (Estonian): `"status.applying": "Rakendatakse faili {selectedFile.name} → {destPath} ..."`
+Translation (Estonian): `status-applying = Rakendatakse faili {$selectedFile.name} → {$destPath} ...`
 
 ### The _META Section
 
